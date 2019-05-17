@@ -19,5 +19,6 @@ git clone https://github.com/MDGSF/vim-dict.git ~/.vim/bundle
 
 ```
 nnoremap <F2> :QueryWord<CR>
+vnoremap <F2> :call QueryWord()<CR>
 ```
 

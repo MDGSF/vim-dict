@@ -23,18 +23,19 @@ from os.path import normpath, join
 import vim
 plugin_root_dir = vim.eval('s:plugin_root_dir')
 python_root_dir = normpath(join(plugin_root_dir, '..', 'python'))
-ecdict_dir = normpath(join(plugin_root_dir, '..', 'python'))
 sys.path.insert(0, python_root_dir)
-sys.path.insert(0, ecdict_dir)
 from vimdict import *
 EOF
 
-function! QueryWord()
-    let s:wordUnderCursor = expand("<cword>")
-    py3 Python_QueryWord(ecdict_dir)
+function! NQueryWord()
+    py3 Normal_Python_QueryWord()
 endfunction
 
-command! -nargs=0 QueryWord call QueryWord()
+function! VQueryWord()
+    py3 Visual_Python_QueryWord()
+endfunction
+
+command! -nargs=0 QueryWord call NQueryWord()
 
 let &cpo = s:save_cpo
 unlet s:save_cpo

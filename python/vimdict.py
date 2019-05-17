@@ -17,12 +17,21 @@ try:
 except:
     import simplejson as json
 
+
+def getRange():
+    buf = vim.current.buffer
+    if buf is None:
+        print("vim.current.buffer is None.")
+        return
+    return vim.eval("@*")
+
+
 def getWordUnderCursor():
     return vim.eval("expand('<cword>')")
 
-def Python_QueryWord(dbpath):
-    word = getWordUnderCursor()
-    sqlitename = os.path.join(dbpath, 'stardict.db')
+
+def Python_QueryWord(word):
+    sqlitename = os.path.join(os.path.dirname(__file__), 'stardict.db')
     sd = stardict.StarDict(sqlitename, False)
     result = sd.query(word)
     if result is None:
@@ -34,3 +43,12 @@ def Python_QueryWord(dbpath):
     if len(result['translation']) > 0:
         print(result['translation'])
 
+
+def Normal_Python_QueryWord():
+    word = getWordUnderCursor()
+    Python_QueryWord(word)
+
+
+def Visual_Python_QueryWord():
+    txt = getRange()
+    Python_QueryWord(txt)

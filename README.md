@@ -1,21 +1,26 @@
 # vim-dict
 
-English to Chinese dictionary.
+**vim-dict** 英汉字典。
 
-## How to install
+## 安装
 
 ```
-git clone https://github.com/MDGSF/vim-dict.git ~/.vim/bundle
+cd ~/.vim/bundle
+git clone https://github.com/MDGSF/vim-dict.git
 ```
 
-`stardict.db` 下载地址。把 `stardict.db` 放到目录 `vim-dict/python` 下面。
+### stardict.db 字典数据库
+
+`stardict.db` 下载地址。
 
 ```
 链接: https://pan.baidu.com/s/15MTRjf3Kzxgmpz6MdOp4mQ
 提取码: hr8q
 ```
 
-## Add map to vimrc
+把 `stardict.db` 放到目录 `vim-dict/python` 下面。
+
+## 添加映射
 
 ```
 nnoremap <F2> :QueryWord<CR>

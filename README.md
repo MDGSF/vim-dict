@@ -20,6 +20,8 @@ git clone https://github.com/MDGSF/vim-dict.git
 
 把 `stardict.db` 放到目录 `vim-dict/python` 下面。
 
+也可以到 [ECDICT](https://github.com/skywind3000/ECDICT) 去下载。
+
 ## 添加映射
 
 ```

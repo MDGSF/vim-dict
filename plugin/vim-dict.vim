@@ -4,8 +4,8 @@
 " License:	This file is placed in the public domain.
 
 if !has("python3")
-    echo "vim has to be compiled with +python3 to run this"
-    finish
+  echo "vim has to be compiled with +python3 to run this"
+  finish
 endif
 
 if exists("g:loaded_vim_dict")
@@ -28,11 +28,11 @@ from vimdict import *
 EOF
 
 function! s:NQueryWord()
-    py3 Normal_Python_QueryWord()
+  py3 Normal_Python_QueryWord()
 endfunction
 
 function! s:VQueryWord()
-    py3 Visual_Python_QueryWord()
+  py3 Visual_Python_QueryWord()
 endfunction
 
 function! s:CEnterWord()

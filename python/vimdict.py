@@ -32,7 +32,15 @@ def getWordUnderCursor():
     return trimdWord
 
 
+def Python_input(message='input'):
+    vim.command('call inputsave()')
+    vim.command("let user_input = input('" + message + ": ')")
+    vim.command('call inputrestore()')
+    return vim.eval('user_input')
+
+
 def Python_QueryWord(word):
+    vim.command('redraw!')
     sqlitename = os.path.join(os.path.dirname(__file__), 'stardict.db')
     sd = stardict.StarDict(sqlitename, False)
     result = sd.query(word)
@@ -54,13 +62,6 @@ def Normal_Python_QueryWord():
 def Visual_Python_QueryWord():
     txt = getRange()
     Python_QueryWord(txt)
-
-
-def Python_input(message='input'):
-    vim.command('call inputsave()')
-    vim.command("let user_input = input('" + message + ": ')")
-    vim.command('call inputrestore()')
-    return vim.eval('user_input')
 
 
 def CEnter_Python_QueryWord():

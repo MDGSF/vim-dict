@@ -27,15 +27,22 @@ sys.path.insert(0, python_root_dir)
 from vimdict import *
 EOF
 
-function! NQueryWord()
+function! s:NQueryWord()
     py3 Normal_Python_QueryWord()
 endfunction
 
-function! VQueryWord()
+function! s:VQueryWord()
     py3 Visual_Python_QueryWord()
 endfunction
 
-command! -nargs=0 QueryWord call NQueryWord()
+function! s:CEnterWord()
+  py3 CEnter_Python_QueryWord()
+endfunction
+
+command! -nargs=0 QueryWord call <SID>NQueryWord()
+command! VDn call <SID>NQueryWord()
+command! VDv call <SID>VQueryWord()
+command! VDe call <SID>CEnterWord()
 
 let &cpo = s:save_cpo
 unlet s:save_cpo

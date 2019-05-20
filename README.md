@@ -1,6 +1,6 @@
 # vim-dict
 
-**vim-dict** 英汉字典。
+**vim-dict** 离线英汉字典。
 
 ## 安装
 
@@ -25,7 +25,8 @@ git clone https://github.com/MDGSF/vim-dict.git
 ## 添加映射
 
 ```
-nnoremap <F2> :QueryWord<CR>
-vnoremap <F2> :call QueryWord()<CR>
+vnoremap <silent> <F2> :<c-u>VDv<CR>
+nnoremap <silent> <F2> :<c-u>VDn<CR>
+noremap <leader>zz :<c-u>VDe<CR>
 ```
 
